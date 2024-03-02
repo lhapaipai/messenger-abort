@@ -1,7 +1,20 @@
 
-#status {
-  box-shadow: 0 0 2px #aaa;
+.actions {
   margin: 1rem 0;
-  padding: 1rem;
-  min-height: 10rem;
+}
+
+.task {
+  display: flex;
+  border-bottom: 1px solid grey;
+}
+
+.task > * {
+  padding: .5rem;
+}
+
+.status {
+  width: 100px;
+}
+.result {
+  flex: 1;
 }

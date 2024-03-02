@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!
+{% endblock %}
+
+{% block body %}
+  <div class="tasks">
+
+    <div class="task">
+      <div class="id">Id</div>
+      <div class="status">Status</div>
+      <div class="result">Result</div>
+      <div class="action">
+        Actions
+      </div>
+    </div>
+    {% for task in tasks %}
+
+      <div class="task" data-id="{{ task.id }}" data-status="{{ task.status.value }}">
+        <div class="id">{{ task.id }}</div>
+        <div class="status">{{ task.status.value }}</div>
+        <div class="result">{{ task.result }}</div>
+        <div class="action">
+          {% if task.status.value == "pending" %}
+            <button class="abort">Abort</button>
+          {% endif %}
+          <button class="delete">Delete</button>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="actions">
+    <button id="start">Start new Task</button>
+  </div>
+
+  <template id="task-template">
+    <div class="task" data-id="" data-status="">
+      <div class="id"></div>
+      <div class="status"></div>
+      <div class="result"></div>
+      <div class="action">
+        <button class="abort">Abort</button>
+        <button class="delete">Delete</button>
+      </div>
+    </div>
+  </template>
+
+{% endblock %}
